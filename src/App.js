@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Table } from 'antd';
-import WithGetLocalStorageData from './components/highOrderComponents/getStorage';
+import WithGetLocalStorageData from './common/components/highOrderComponents/getStorage';
 
 
 const AppOder = (props) => {
