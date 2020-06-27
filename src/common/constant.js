@@ -33,3 +33,9 @@ export const weeks = ["星期日", "星期一", "星期二", "星期三", "星�
 * 默认要改变的数组对象字段(Field)
 */
 export const defaultArrObjField = ['id', 'name'];
+
+/**
+* 默认常用邮箱后缀
+*/
+
+export const defaultEmailSuffixs = "@qq.com,@gmail.com,@163.com,@yahoo.com,@msn.com,@hotmail.com,@aol.com,@ask.com,@live.com,@0355.net,@163.net,@263.net,@3721.net,@yeah";

@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from 'react';
+import { Form, Row, Col, Button, Input } from 'antd';
+
 import VCode from '@common/Components/VCode';
-import { Form, Row, Col, Button, Input, Select } from 'antd';
 import UseScreenSize from '@common/Components/ScreenSize';
 import AddSelect from '@common/Components/Select/addSelect';
-import './test.less';
-import './styles/default.less';
-import { defaultFormLayout } from './common/constant';
+import EmailAutoComplete from '@common/Components/AutoComplete/emailAutoComplete';
+
+import { defaultFormLayout } from '@common/constant';
 import { guid } from '@common/method';
 
-const { Option } = Select;
+import './test.less';
+import './styles/default.less';
 
 const Test = () => {
     const [form] = Form.useForm();
     const [size, setSize] = UseScreenSize();
     const [refresh, setRefresh] = useState(1);
-    const data = [...Array(20).keys()].map(itm => ({ id: itm, name: itm }));
     useEffect(() => {
         form.setFieldsValue({ 
             username: '222222', 
-            select: 1, 
             gender: guid(),
         });
     }, [])
@@ -82,17 +82,7 @@ const Test = () => {
                         </Form.Item>
                     </Col>
                     <Col span={9}>
-                        <Form.Item 
-                                name='select' 
-                                label='select' 
-                                {...defaultFormLayout}
-                            >
-                                <Select style={{flex: 1}}>
-                                    {data.map(itm => {
-                                        return <Option key={itm.id} value={itm.id}>{itm.name}</Option>
-                                    })}
-                                </Select>
-                        </Form.Item>
+                        <EmailAutoComplete form={form} />
                     </Col>
                 </Row>
                 <Row>
