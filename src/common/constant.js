@@ -4,7 +4,9 @@ export const defaultFormLayout = {
     wrapperCol: { span: 16 }
 };
 
-// 默认日期的格式化
+/**
+* 默认日期的格式化
+*/
 export const defaultDateFormat = {
     time: 'YYYY-MM-DD HH:mm:ss',
     day: 'YYY-MM-DD',
@@ -12,7 +14,9 @@ export const defaultDateFormat = {
     year: 'YYYY',
 }
 
-// 默认分页
+/**
+* 默认分页
+*/
 export const defaultPagination = {
     page: 1,
     pageSize: 30,
@@ -20,5 +24,12 @@ export const defaultPagination = {
     pageSizeOptions: ["30", "50", "100"],
 }
 
-// 一周
+/**
+* 一周
+*/
 export const weeks = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+
+/**
+* 默认要改变的数组对象字段(Field)
+*/
+export const defaultArrObjField = ['id', 'name'];

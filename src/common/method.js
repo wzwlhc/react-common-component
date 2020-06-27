@@ -1,4 +1,4 @@
-import { weeks } from './constant';
+import { weeks, defaultArrObjField } from './constant';
 
 /**
 *  生成随机id
@@ -47,35 +47,33 @@ export const differDay = (endStr, startStr) => {
 export const nowDayTime = () => {
     const now = new Date();
     const year = now.getFullYear(); //得到年份
-    const month = now.getMonth();//得到月份
-    const day = now.getDate();//得到日期
+    let month = now.getMonth(); //得到月份
+    let day = now.getDate(); //得到日期
 
-    const hours = now.getHours();//得到小时
-    const minutes = now.getMinutes();//得到分钟
-    const seconds = now.getSeconds();//得到秒
+    let hours = now.getHours(); //得到小时
+    let minutes = now.getMinutes(); //得到分钟
+    let seconds = now.getSeconds(); //得到秒
 
-    const week = weeks[now.getDay()];//得到周几
+    const week = weeks[now.getDay()]; //得到周几
 
     if (month < 10) month = "0" + month;
-    if (date < 10) date = "0" + date;
+    if (day < 10) day = "0" + day;
     if (hours < 10) hours = "0" + hours;
     if (minutes < 10) minutes = "0" + minutes;
     if (seconds < 10) seconds = "0" + seconds;
 
-    time = `${year}-${month}-${day} ${hours}:${minutes}:${seconds} ${week}`;
+    const time = `${year}-${month}-${day} ${hours}:${minutes}:${seconds} ${week}`;
     return time;
 }
 
 /**
-解析带有？的路由把 a=b 变成 a: b 
+*  把(id、name)换成下拉框需要的(label、value)
 */
 
-const urlEqualSign = url => {
-    const urlArr = url.split('?');
-    const urlStr = urlArr[urlArr.length - 1];
-    const equalArr = urlStr.split('&');
-    const equalSignObj = urlEqualSignObj(equalArr);
-    return equalSignObj;
+export const handleArrObjFieldChange = (arr, fieldArr = defaultArrObjField) => {
+    const [id, name] = fieldArr;
+    const newArr = arr.map(itm => ({ label: itm[name], value: itm[id] }));
+    return newArr;
 }
 
 const urlEqualSignObj = equalArr => {
@@ -87,3 +85,16 @@ const urlEqualSignObj = equalArr => {
     })
     return obj;
 }
+
+/**
+解析带有？的路由把 a=b 变成 a: b 
+*/
+
+export const urlEqualSign = url => {
+    const urlArr = url.split('?');
+    const urlStr = urlArr[urlArr.length - 1];
+    const equalArr = urlStr.split('&');
+    const equalSignObj = urlEqualSignObj(equalArr);
+    return equalSignObj;
+}
+

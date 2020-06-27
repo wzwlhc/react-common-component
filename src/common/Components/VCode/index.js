@@ -18,7 +18,6 @@ const VCode = ({ form, refresh }) => {
         return Promise.reject('验证码错误!');
     }
 
-
     return (
         <Form.Item
             {...defaultFormLayout}
@@ -49,8 +48,6 @@ VCode.propTypes = {
     refresh: PropTypes.number.isRequired,
 }
 
-VCode.defaultProps = {
-
-}
+VCode.defaultProps = {}
 
 export default VCode;

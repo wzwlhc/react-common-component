@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Input } from 'antd';
 import options, { sCode } from './config';
 
-const CodeInput = ({ onChange, changeCode, form, refresh }) => {
+const VCodeInputGroup = ({ onChange, changeCode, form, refresh }) => {
 
     const [inputValue, setValue] = useState('');
     const codeRef = React.createRef();
@@ -11,9 +11,9 @@ const CodeInput = ({ onChange, changeCode, form, refresh }) => {
     useEffect(() => {
         onRraw();
         return (() => {
+
         })
     }, [])
-
     // 注册失败,清空验证码
     useEffect(() => {
         if(refresh !== 1) onRraw();
@@ -132,15 +132,15 @@ const CodeInput = ({ onChange, changeCode, form, refresh }) => {
     )
 }
 
-CodeInput.propTypes = {
+VCodeInputGroup.propTypes = {
     onChange: PropTypes.func,
     form: PropTypes.any.isRequired,
     changeCode: PropTypes.func.isRequired,
     refresh: PropTypes.number.isRequired,
 }
 
-CodeInput.defaultProps = {
+CodeInpVCodeInputGrouput.defaultProps = {
 
 }
 
-export default CodeInput;
+export default VCodeInputGroup;
